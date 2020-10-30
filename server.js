@@ -1,6 +1,9 @@
 const express = require("express");
 const morgon = require("morgan");
 const router = express.Router();
+const mangoose = require("mongoose");
+const bodyParser = require("body-parser");
+require('dotenv').config();
 
 //express app
 const app = express();
@@ -8,6 +11,16 @@ const app = express();
 //listing to LocalHost
 const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
+
+//connect to Mangodb...
+const dbURI = process.env.mongodb_URI;
+mangoose.connect(dbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
+  .then(() => console.log("connected to db"))
+  .catch((err) => console.log("there is an error", err));
 
 
 /** bodyParser.urlencoded(options)
