@@ -2,19 +2,22 @@
 <html lang="en">
 <%- include('./partials/head.ejs') %>
 <body>
-    <div class="text-dark text-center py-5">
+    
+    <div class="text-light text-center py-5">
          <h1>URL Shortener</h1>   
     </div>
     <div class="input-group row index__bg w-50 m-auto p-5">
         
         <input type="text" class="form-control" placeholder="Enter long Url..." aria-label="longUrl" aria-describedby="button-addon2">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Convert</button>
+          <button class="btn btn-outline-primary text-light" type="button" id="button-addon2">Convert</button>
         </div>
-      </div>
+      
+    </div>
     
     
   <%- include('./partials/footer.ejs') %>
+ 
   <%- include('./partials/scriptTag.ejs') %>
 </body>
 </html>
