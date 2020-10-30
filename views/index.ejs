@@ -6,14 +6,29 @@
     <div class="text-light text-center py-5">
          <h1>URL Shortener</h1>   
     </div>
-    <div class="input-group row index__bg w-50 m-auto p-5">
+    <div class="input-group row container index__bg m-auto p-5">
         
         <input type="text" class="form-control" placeholder="Enter long Url..." aria-label="longUrl" aria-describedby="button-addon2">
         <div class="input-group-append">
           <button class="btn btn-outline-primary text-light" type="button" id="button-addon2">Convert</button>
         </div>
-      
     </div>
+    <table class="table table-danger table-hover container my-5">
+        <thead>
+          <tr>
+            <th>Long URL</th>
+            <th>Short URL</th>
+            <th>Clicks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>https://www.amazon.com/Logitech-Lag-Free-Wireless-Gaming-Mouse/dp/B00E4MQODC?pd_rd_w=zxmIF&pf_rd_p=1f552c7a-1af2-4608-bc6f-ba06ca3c43ac&pf_rd_r=VA6S76Q9RMBHZFTS6EDV&pd_rd_r=06bf231e-3767-4e31-a1b5-9b6b7797c1ca&pd_rd_wg=fYIzS</td>
+            <td>https://www.amazon.com/Logitech</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+    </table>
     
     
   <%- include('./partials/footer.ejs') %>
