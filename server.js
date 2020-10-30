@@ -4,6 +4,7 @@ const router = express.Router();
 const path =require('path');
 const mangoose = require("mongoose");
 const bodyParser = require("body-parser");
+const urlRoute = require('./routes/urlRoute');
 require('dotenv').config();
 
 //express app
@@ -23,7 +24,8 @@ mangoose.connect(dbURI, {
   .then(() => console.log("connected to db"))
   .catch((err) => console.log("there is an error", err));
 
-
+//register view engine
+app.set("view engine", "ejs");
 /** bodyParser.urlencoded(options)
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
  * and exposes the resulting object (containing the keys and values) on req.body
@@ -39,3 +41,6 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(morgon("dev"));
+
+//Url-shortner routes
+app.use(urlRoute);
