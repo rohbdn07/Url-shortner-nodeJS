@@ -1,6 +1,7 @@
 const express = require("express");
 const morgon = require("morgan");
 const router = express.Router();
+const path =require('path');
 const mangoose = require("mongoose");
 const bodyParser = require("body-parser");
 require('dotenv').config();
@@ -33,3 +34,8 @@ app.use(bodyParser.urlencoded({
     extended: true,
   })
 );
+
+//middleware and static files...
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(morgon("dev"));
