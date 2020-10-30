@@ -1,0 +1,31 @@
+{
+  "name": "url-shortner-nodejs",
+  "version": "1.0.0",
+  "description": "Url-shortner using EJS, NodeJS, Express, Mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart":"nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohbdn07/Url-shortner-nodeJS.git"
+  },
+  "keywords": [
+    "url-shortner"
+  ],
+  "author": "Rohit Bhandari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohbdn07/Url-shortner-nodeJS/issues"
+  },
+  "homepage": "https://github.com/rohbdn07/Url-shortner-nodeJS#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
