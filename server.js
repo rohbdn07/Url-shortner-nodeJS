@@ -26,11 +26,11 @@ mangoose.connect(dbURI, {
 
 //register view engine
 app.set("view engine", "ejs");
+
 /** bodyParser.urlencoded(options)
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
  * and exposes the resulting object (containing the keys and values) on req.body
  */
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true,

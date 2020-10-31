@@ -6,13 +6,15 @@
     <div class="text-light text-center py-5">
          <h1>URL Shortener</h1>   
     </div>
-    <div class="input-group row container index__bg m-auto p-5">
-        
-        <input type="text" class="form-control" placeholder="Enter long Url..." aria-label="longUrl" aria-describedby="button-addon2">
+
+    <form action="/shortUrls" method="POST">
+      <div class="input-group row container index__bg m-auto p-5">
+        <input type="url" class="form-control" id="longUrl" name="longUrl" placeholder="Enter long Url..." aria-label="longUrl" aria-describedby="button-addon2" required>
         <div class="input-group-append">
-          <button class="btn btn-outline-success text-light" type="button" id="button-addon2">Convert</button>
+          <button class="btn btn-outline-success text-light" type="submit" id="submit">Convert</button>
         </div>
-    </div>
+      </div>
+    </form>
     <table class="table table-striped table-responsive table-danger table-hover container my-5 py-4">
         <thead>
           <tr>
@@ -22,12 +24,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td> <a href="https://www.amazon.com/Logitech-Lag-Free-Wireless-Gaming-Mouse/dp/B00E4MQODC?pd_rd_w=zxmIF&pf_rd_p=1f552c7a-1af2-4608-bc6f-ba06ca3c43ac&pf_rd_r=VA6S76Q9RMBHZFTS6EDV&pd_rd_r=06bf231e-3767-4e31-a1b5-9b6b7797c1ca&pd_rd_wg=fYIzS">
-            </a>https://www.amazon.com/Logitech-Lag-Free-Wireless-Gaming-Mouse/dp/B00E4MQODC?pd_rd_w=zxmIF&pf_rd_p=1f552c7a-1af2-4608-bc6f-ba06ca3c43ac&pf_rd_r=VA6S76Q9RMBHZFTS6EDV&pd_rd_r=06bf231e-3767-4e31-a1b5-9b6b7797c1ca&pd_rd_wg=fYIzS </td>
-            <td> <a href="https://www.amazon.com"></a>123456789</td>
-            <td>0</td>
-          </tr>
+          <% urlShortners.forEach(urlShortner => {%>
+            <tr>
+              <td> <a href="<%= urlShortner.longUrl%>">
+                 <%= urlShortner.longUrl%> </a>
+              </td>
+              <td> <a href="<%=urlShortner.shortUrl%>"><%=urlShortner.shortUrl%></a>
+              </td>
+              <td><%=urlShortner.clicks%></td>
+            </tr>
+          <%})%>
+          
         </tbody>
     </table>
     
