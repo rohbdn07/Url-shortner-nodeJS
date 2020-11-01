@@ -37,10 +37,10 @@ router.post('/shortUrls', async(req,res, next)=>{
 
 })
 
-//GET route to shourturl params...
+//GET route (/:shortUrl)...
 router.get('/:shortUrl', async(req,res)=>{
     const shortUrl= await UrlShortner.findOne({shortUrl: req.params.shortUrl});
-    if(!shortUrl) return res.sendstatus(404);
+    if(!shortUrl) return res.status(404);
    
     try { 
         shortUrl.clicks++
