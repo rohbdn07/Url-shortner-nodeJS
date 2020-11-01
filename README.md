@@ -8,9 +8,9 @@ Build the Url shortner Using Ejs template, Node Js, Express, and Mongodb
 
 npm install
 
-## Edit the default.json file with your mongoURI and baseUrl
+#Edit the default.json file with your mongoURI and baseUrl
 
-## Use production.json in production env
+#Use production.json in production env
 
 ## Run
 
