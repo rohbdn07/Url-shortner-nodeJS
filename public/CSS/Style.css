@@ -1,4 +1,5 @@
 body{
+    font-family: 'Lobster', cursive;
     background: rgb(2, 0, 36) !important;
     background: linear-gradient(90deg,
         rgba(2, 0, 36, 0.5942752100840336) 0%,
@@ -8,12 +9,17 @@ body{
         rgba(9, 75, 121, 1) 100%,
         rgba(2, 65, 78, 1) 100%) !important;
 }
-.index__bg {
+.index__bg, .index__Card__bg {
     background: linear-gradient(217deg, rgba(3, 1, 1, 0.877), rgba(255,0,0,0) 70.71%),
     linear-gradient(127deg, rgba(38, 46, 38, 0.473), rgba(0,255,0,0) 70.71%),
     linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
-    border-radius: 15px;   
+    border-radius: 15px;  
+    background-color: black; 
 }
-.index__bg:hover{
-    background-color: black;
+ .index__Card__bg:hover{
+    background-color: rgba(114, 74, 13, 0.466);
+    transition: all ease-in-out 1.5s;
+}
+.text__color{
+    color: #f39c12;
 }
