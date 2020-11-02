@@ -49,3 +49,12 @@ app.use(morgon("dev"));
 //Url-shortner routes
 app.use(urlRoute);
 
+//404 page...
+//if NO routes is matched in blogRoutes.js file.
+//It will display 404 error page to user.
+//It MUST be placed at end of the router.js
+router.use((req, res) => {
+  res.status(404).render("404", {
+    title: "Error",
+  });
+});

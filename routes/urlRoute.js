@@ -1,66 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const urlController=require('../controllers/UrlController')
 
-const UrlShortner = require('../models/UrlShortner');
-
- 
 //GET route(/) to get all the saved data...
-router.get('/', async(req,res)=>{
-    try {
-        const data= await UrlShortner.find({}).sort({createdAt:'-1'});
-        //console.log(data)
-         res.render('index',{
-        urlShortners:data
-    })
-    } catch (error) {
-        console.log("There is an error to get data", error);
-        res.json('Opps! unable to get the data from database')
-    }  
-})
+router.get('/', urlController.url_index)
 
 //POST route (/shortUrls) to store Long Url to db...
-router.post('/shortUrls', async(req,res, next)=>{
-     try {
-        const duplicate= await UrlShortner.findOne({longUrl:req.body.longUrl});
-        if(duplicate) return(
-            console.log("Already exit url"),
-            res.redirect('/')
-        ) 
-        const urlShort = new UrlShortner();
-        urlShort.longUrl=req.body.longUrl;
-        await urlShort.save();
-        console.log('LongUrl is saved to db')
-        res.redirect('/');
-    } catch (error) {
-        res.render('index');
-        console.log('Unable to store the data', error)
-    }
-
-})
+router.post('/shortUrls', urlController.url_shorturls_post)
 
 //GET route (/:shortUrl)...
-router.get('/:shortUrl', async(req,res)=>{
-    const shortUrl= await UrlShortner.findOne({shortUrl: req.params.shortUrl});
-    if(!shortUrl) return res.status(404);
-   
-    try { 
-        shortUrl.clicks++
-        await shortUrl.save();
-        res.redirect(shortUrl.longUrl);
-    } catch (error) {
-        console.log(error)
-    }
-})
+router.get('/:shortUrl', urlController.url_get_shorturl)
 
 //DELETE route
-router.delete('/:id', async(req,res)=>{
-    try {
-        await UrlShortner.findByIdAndDelete(req.params.id);
-        res.redirect('/')
-    } catch (error) {
-        console.log('Not deleted', error);
-        res.redirect('/')
-    }
-  
-})
+router.delete('/:id', urlController.url_delete)
+
 module.exports=router;
