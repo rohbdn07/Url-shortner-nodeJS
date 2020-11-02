@@ -4,7 +4,7 @@ Build the Url shortner Using Ejs template, Node Js, Express, and Mongodb.
 
 # File Structure
 
-The file architecture is based on Models, Views, and Controllers (MVC) application.
+The file architecture is based on Models, Views, and Controllers (MVC) application. The app structure will look like this:
 
 ### contollers
 
@@ -16,7 +16,11 @@ The part of our application that will deal with the database or any data-related
 
 ### public
 
+Accessing static files are very useful when you want to put your static content accessible to the server for usage. To serve static files such as images, CSS files, and JavaScript files, etc we use the built-in middleware in node.js i.e. express.static.
+
 ### routes
+
+Routing defines the way in which the client requests are handled by the application endpoints. This app contains #GET, #POST, #DELETE routes.
 
 ### views
 
@@ -24,7 +28,7 @@ Everything the user will see — basically, the pages that we’re going to send
 
 ### server
 
-The entry file.
+The entry file. The head of all files.
 
 # Quick Start
 
@@ -46,14 +50,14 @@ npm start
 
 npm devStart
 
-# Endpoint to create short url
+#### Endpoint to create short url
 
 POST (/shortUrls)
 
-# Endpoint to delete the existence data(url)
+#### Endpoint to delete the existence data(url)
 
 DELETE (/:id)
 
-# Endpoint to show new and the existence data(url)
+#### Endpoint to show new and the existence data(url)
 
 GET (/)
