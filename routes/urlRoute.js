@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+
 const UrlShortner = require('../models/UrlShortner');
 
  
@@ -49,7 +50,17 @@ router.get('/:shortUrl', async(req,res)=>{
     } catch (error) {
         console.log(error)
     }
-    
+})
 
+//DELETE route
+router.delete('/:id', async(req,res)=>{
+    try {
+        await UrlShortner.findByIdAndDelete(req.params.id);
+        res.redirect('/')
+    } catch (error) {
+        console.log('Not deleted', error);
+        res.redirect('/')
+    }
+  
 })
 module.exports=router;

@@ -19,3 +19,5 @@ npm start
 # Endpoint to create short url
 
 POST (/shortUrls)
+
+## Condition

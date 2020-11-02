@@ -5,6 +5,7 @@ const path =require('path');
 const mangoose = require("mongoose");
 const bodyParser = require("body-parser");
 const urlRoute = require('./routes/urlRoute');
+const methodOverride= require("method-override");
 require('dotenv').config();
 
 //express app
@@ -40,7 +41,11 @@ app.use(bodyParser.urlencoded({
 //middleware and static files...
 app.use(express.static(path.join(__dirname, "public")));
 
+//Method-Override
+app.use(methodOverride('_method'));
+
 app.use(morgon("dev"));
 
 //Url-shortner routes
 app.use(urlRoute);
+
