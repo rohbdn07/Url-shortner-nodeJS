@@ -4,7 +4,7 @@ Build the Url shortner Using Ejs template, Node Js, Express, and Mongodb.
 
 # File Structure
 
-The file architecture is based on Models, Views, and Controllers (MVC) application. The app structure will look like this:
+The folder architecture is based on Models, Views, and Controllers (MVC) application. The project structure will look like this:
 
 ### contollers
 
