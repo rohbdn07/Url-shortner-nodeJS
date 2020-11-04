@@ -1,6 +1,10 @@
 # Url-shortner-nodeJS
 
-Build the Url shortner Using Ejs template, Node Js, Express, and Mongodb.
+Build the Url shortner Using Ejs template, Node Js, Express, and Mongodb. The app converts long awful Url to very short Url id. You can copy the shortUrl link and paste it to wherever you want to post. For e.g. Social medias, emails, messages and so on.
+
+### Deployed at Heroku
+
+[Url Shortener App](https://url-shortener-webapp.herokuapp.com/)
 
 # File Structure
 
