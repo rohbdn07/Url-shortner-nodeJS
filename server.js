@@ -12,7 +12,7 @@ require('dotenv').config();
 const app = express();
 
 //listing to LocalHost
-const PORT = process.env.PORT || 5002;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 //connect to Mangodb...
