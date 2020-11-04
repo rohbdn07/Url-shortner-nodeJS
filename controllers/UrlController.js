@@ -5,6 +5,7 @@ const UrlShortner = require('../models/UrlShortner');
 const url_index= async(req,res)=>{
     try {
         const data= await UrlShortner.find({}).sort({createdAt:'-1'});
+        if(!data) return res.redirect('/');
         //console.log(data)
          res.render('index',{
         urlShortners:data
