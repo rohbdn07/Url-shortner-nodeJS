@@ -2,6 +2,8 @@
 
 Build the Url shortner Using Ejs template, Node Js, Express, and Mongodb. The app converts long awful Url to very short Url id. You can copy the shortUrl link and paste it to wherever you want to post. For e.g. Social medias, emails, messages and so on.
 
+The app also has a feature to delete the outcomes as well.
+
 ### Deployed at Heroku
 
 [Url Shortener App](https://url-shortener-webapp.herokuapp.com/)
@@ -26,6 +28,10 @@ Accessing static files are very useful when you want to put your static content 
 
 Routing defines the way in which the client requests are handled by the application endpoints. This app contains #GET, #POST, #DELETE routes.
 
+### test
+
+The folder contains the testing files. At the moment it has a single file for testing the End-points routes.
+
 ### views
 
 Everything the user will see — basically, the pages that we’re going to send to the client.
@@ -42,17 +48,20 @@ npm install
 
 #Note: if you decide to also use a .env file, make sure you install the package with npm install dotenv and add it to .gitignore so you don’t publish any sensitive information.
 
-#install (npm i dotenv) to create .env file, where you can store your environment variables locally for development purpose. Create .env file with your mongoURI.
+#install **(npm i dotenv)** to create .env file, where you can store your environment variables locally for development purpose. Create .env file with your mongoURI.
 
 ## Run
 
 npm start
 
-"scripts":{
-"devStart": "nodemon server.js"
-}
+"scripts":
+{
+"start": "node server.js"
+},
 
-npm devStart
+"devDependencies":{
+"nodemon":"nodemon server.js"
+}
 
 #### Endpoint to create short url
 
@@ -65,3 +74,18 @@ DELETE (/:id)
 #### Endpoint to show new and the existence data(url)
 
 GET (/)
+
+## Run test
+
+Test runs at: http://localhost:4050/
+
+_\*\*Command to run test: npm run test_\*\*
+
+Checked simple test for GET and POST routes.
+
+**Mocha** and **Chai** are used for testing.
+
+#### Note
+
+Same existing database has been using for testing the GET and POST routes as well. That's why only after each test run i.e (npm run test), data stored in database will be erased. But only single data which was used for testing remains there.
+Though for this app, the task is not much concern with datas stored in database. However, it is highly recommended to note this point if your are running test.

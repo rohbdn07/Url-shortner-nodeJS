@@ -11,9 +11,18 @@ require('dotenv').config();
 //express app
 const app = express();
 
-//listing to LocalHost
+// server.js
+if(process.env.NODE_ENV === "test") {
+  app.set('port', process.env.test_port);
+  app.listen(app.get('port'), err => {
+    if(err) console.error(err);
+    console.log(`Server listening on port ${app.get('port')}...`);
+  });
+} else {
+  //listing to LocalHost
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
+}
 
 //connect to Mangodb...
 const dbURI = process.env.mongodb_URI;
@@ -58,3 +67,6 @@ router.use((req, res) => {
     title: "Error",
   });
 });
+
+// needed for testing purpose only
+module.exports = app;
